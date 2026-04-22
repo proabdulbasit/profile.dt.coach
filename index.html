@@ -13,7 +13,7 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 .app{max-width:800px;margin:0 auto;padding:0 24px;}
 .screen{display:none;}
 .screen.active{display:block;}
-#intro{min-height:100vh;display:none;flex-direction:column;justify-content:center;padding:80px 0 60px;}
+#intro{min-height:100vh;display:none;flex-direction:column;justify-content:center;padding:48px 0 60px;}
 #intro.active{display:flex;}
 .intro-eyebrow{font-size:8px;font-weight:600;letter-spacing:5px;text-transform:uppercase;color:var(--gold);margin-bottom:26px;animation:fadeUp 0.6s ease both;}
 .intro-title{font-family:'Cormorant Garamond',serif;font-size:clamp(52px,9vw,84px);font-weight:700;line-height:0.92;color:var(--white);margin-bottom:10px;animation:fadeUp 0.6s 0.1s ease both;}
@@ -136,7 +136,10 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 .bs-tiers-result{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
 .bs-tier-title{font-size:7px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:8px;padding-bottom:7px;border-bottom:1px solid rgba(255,255,255,0.06);}
 .bs-tags{display:flex;flex-direction:column;gap:5px;}
-.bs-tag{padding:8px 13px;border:1px solid var(--gold-border);font-size:10.5px;font-weight:300;color:var(--muted);}
+.bs-tag{padding:10px 14px;border:1px solid var(--gold-border);font-size:10.5px;font-weight:300;color:var(--muted);}
+.bs-tag-name{font-family:'Montserrat',sans-serif;font-size:7px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:4px;}
+.bs-tag.active .bs-tag-name{color:var(--gold-light);}
+.bs-tag-desc{font-size:10.5px;font-weight:300;line-height:1.5;}
 .bs-tag.active{border-color:var(--gold);color:var(--cream);background:var(--gold-dim);}
 
 .component-focus{background:var(--surface);border:1px solid var(--gold);padding:32px;margin-bottom:44px;position:relative;animation:fadeUp 0.6s 0.42s ease both;}
@@ -174,32 +177,7 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 .cta-note{font-size:9px;font-weight:300;color:rgba(18,17,15,0.42);margin-top:12px;}
 
 @keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
-@media(max-width:600px){.intro-meta{flex-wrap:wrap;gap:16px;}.profile-grid,.ssr-grid,.bs-tiers-result{grid-template-columns:1fr;}.score-name{width:130px;font-size:9.5px;}.result-cta{padding:32px 20px;}.cf-pillars,.rr-pillars{flex-direction:column;}}
-
-/* Email capture */
-.capture-card{border:1px solid var(--gold-border);background:var(--surface);padding:26px 26px;}
-.capture-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
-.field{display:flex;flex-direction:column;gap:8px;}
-.field-label{font-size:7px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:rgba(201,165,90,0.7);}
-.field-input{width:100%;padding:14px 14px;border:1px solid rgba(255,255,255,0.12);background:rgba(255,255,255,0.03);color:var(--cream);font-family:'Montserrat',sans-serif;font-size:13px;outline:none;transition:border-color 0.2s, box-shadow 0.2s;}
-.field-input::placeholder{color:rgba(240,234,216,0.35);}
-.field-input:focus{border-color:var(--gold);box-shadow:0 0 0 3px rgba(201,165,90,0.12);}
-.capture-foot{margin-top:16px;display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;}
-.capture-note{font-size:10.5px;font-weight:300;color:var(--muted);line-height:1.6;flex:1;min-width:220px;}
-@media(max-width:600px){.capture-grid{grid-template-columns:1fr;}.capture-card{padding:22px 18px;}.capture-foot{flex-direction:column;align-items:stretch;}.capture-note{min-width:unset;}}
-
-/* Toast */
-.toast-wrap{position:fixed;left:0;right:0;bottom:18px;display:flex;justify-content:center;pointer-events:none;z-index:9999;}
-.toast{pointer-events:auto;max-width:min(560px,calc(100vw - 32px));border:1px solid var(--gold-border);background:rgba(23,21,18,0.92);backdrop-filter:blur(10px);padding:12px 14px;display:flex;align-items:center;gap:12px;transform:translateY(18px);opacity:0;transition:opacity 0.2s ease, transform 0.2s ease;}
-.toast.show{opacity:1;transform:translateY(0);}
-.toast-dot{width:8px;height:8px;border-radius:999px;background:var(--gold);flex-shrink:0;}
-.toast.error .toast-dot{background:rgba(255,120,120,0.95);}
-.toast-title{font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gold);}
-.toast.error .toast-title{color:rgba(255,170,170,0.95);}
-.toast-msg{font-size:11.5px;font-weight:300;color:rgba(240,234,216,0.78);line-height:1.55;}
-.toast-actions{margin-left:auto;display:flex;align-items:center;gap:10px;}
-.toast-btn{background:none;border:none;color:rgba(240,234,216,0.7);font-size:10px;font-weight:600;letter-spacing:2px;text-transform:uppercase;cursor:pointer;padding:6px 8px;}
-.toast-btn:hover{color:var(--cream);}
+@media(max-width:600px){.intro-meta{flex-wrap:wrap;gap:16px;}.profile-grid,.ssr-grid,.bs-tiers-result{grid-template-columns:1fr;}.score-name{width:130px;font-size:9.5px;}.result-cta{padding:32px 20px;}.cf-pillars,.rr-pillars{flex-direction:column;}#intro{padding:12px 0 40px;}}
 </style>
 </head>
 <body>
@@ -208,14 +186,10 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 <!-- INTRO -->
 <div id="intro" class="screen active">
   <div class="intro-eyebrow">Darren Tebbenham · BSc, MSc · The 2.0 Method</div>
-  <div class="intro-title">The <span class="gold">2.0</span><br>Profile</div>
-  <div class="intro-subtitle">Discover your pattern. Find your entry point.</div>
-  <div class="intro-desc">
-    Most people who struggle with weight are not lacking information, discipline, or willpower. They are running a psychological pattern that no plan has ever addressed.<br><br>
-    This assessment identifies <strong>which of the four patterns</strong> is driving your behaviour, <strong>which blind spots</strong> are keeping you stuck, and <strong>exactly where</strong> your transformation begins — through Clarity, Vision, and Focus.
-  </div>
+  <div class="intro-title">The <span class="gold">2.0</span> Profile</div>
+  <div class="intro-desc" style="font-size:16px;color:rgba(240,234,216,0.88);max-width:560px;margin-bottom:32px;margin-top:16px;">This assessment identifies which of the four patterns is driving your behaviour, which blind spots are keeping you stuck, and exactly where your transformation begins.</div>
   <div class="intro-book-quote">
-    <div class="ibq-text">"Nothing about your past struggles with weight was a personal failure. You were never lazy. You were never weak. You were responding exactly as a human brain responds under pressure."</div>
+    <div class="ibq-text" style="font-size:18px;line-height:1.7;color:var(--cream);">"Progress isn't lost in the slip. It's lost in the story you tell yourself afterwards."</div>
     <div class="ibq-source">From The Psychology of Weight Loss · Darren Tebbenham, BSc, MSc</div>
   </div>
   <div class="intro-meta">
@@ -238,48 +212,10 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
   <div id="question-container"></div>
 </div>
 
-<!-- EMAIL CAPTURE -->
-<div id="email-capture" class="screen">
-  <div class="quiz-header">
-    <div class="quiz-brand">The 2.0 Profile</div>
-    <div class="progress-wrap">
-      <div class="progress-text">Complete</div>
-      <div class="progress-bar"><div class="progress-fill" style="width:100%"></div></div>
-    </div>
-  </div>
-  <div class="question-block">
-    <div class="q-number">Almost there</div>
-    <div class="q-text">Where should we send your profile?</div>
-    <div class="q-subtext">Enter your details to view your results and get the right resources for your pattern.</div>
-
-    <div class="capture-card">
-      <div class="capture-grid">
-        <label class="field">
-          <span class="field-label">First name</span>
-          <input id="capture-first-name" class="field-input" type="text" autocomplete="given-name" inputmode="text" placeholder="First name">
-        </label>
-        <label class="field">
-          <span class="field-label">Email</span>
-          <input id="capture-email" class="field-input" type="email" autocomplete="email" inputmode="email" placeholder="you@email.com">
-        </label>
-      </div>
-      <div class="capture-foot">
-        <div class="capture-note" id="capture-note">We’ll only use this to send your profile and relevant updates. You can unsubscribe anytime.</div>
-        <button class="btn-next enabled" id="capture-submit" onclick="submitEmailCapture()">Show My Profile →</button>
-      </div>
-    </div>
-
-    <div class="quiz-nav">
-      <button class="btn-back" onclick="backToLastQuestion()">← Back</button>
-      <div></div>
-    </div>
-  </div>
-</div>
-
 <!-- RESULT -->
 <div id="result" class="screen">
   <div class="result-header">
-    <div class="result-eyebrow" id="result-eyebrow">Your 2.0 Profile</div>
+    <div class="result-eyebrow">Your 2.0 Profile</div>
     <div class="result-type-label">Your Primary Pattern</div>
     <div class="result-type-name" id="result-type-name"></div>
     <div class="result-tagline" id="result-tagline"></div>
@@ -320,25 +256,11 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
   <div class="result-cta">
     <div class="cta-title">Ready to become You 2.0?</div>
     <div class="cta-sub">Your profile is your map. The next step is a free 30-minute diagnostic call with Darren — clarity on exactly what's driving your pattern, and whether the 2.0 Method is the right fit.</div>
-    <a href="https://tidycal.com/darrentebbenham/diagnostic" class="btn-cta">Book Your Diagnostic Call →</a>
+    <a href="https://inside.dt.coach" class="btn-cta">Book Your Diagnostic Call →</a>
     <div class="cta-note">No obligation. No pitch. Just clarity.</div>
   </div>
 </div>
 
-</div>
-
-<!-- TOAST -->
-<div class="toast-wrap" id="toast-wrap" aria-live="polite" aria-atomic="true" style="display:none;">
-  <div class="toast" id="toast">
-    <div class="toast-dot"></div>
-    <div class="toast-body">
-      <div class="toast-title" id="toast-title"></div>
-      <div class="toast-msg" id="toast-msg"></div>
-    </div>
-    <div class="toast-actions">
-      <button class="toast-btn" onclick="hideToast()">Dismiss</button>
-    </div>
-  </div>
 </div>
 
 <script>
@@ -368,7 +290,7 @@ const questions=[
     {letter:'D',title:"'I'm someone who needs everything to be right before I can really go for it'",desc:"I know I could do this if I could just get a clean run at it.",type:'C',blind:'D2'}
   ]},
   {id:3,section:"Part 1 · Clarity",
-   text:"When someone suggests your struggle has nothing to do with willpower — that it's psychological — what's your honest reaction?",
+   text:"When someone suggests your struggle has nothing to do with willpower — that it's psychological. What's your honest reaction?",
    subtext:"Your openness to this idea is a direct measure of your readiness for the work.",
    options:[
     {letter:'A',title:"I accept it intellectually but don't really feel it",desc:"It makes sense in theory. But in practice I still reach for more effort as the answer.",type:'N'},
@@ -386,13 +308,13 @@ const questions=[
     {letter:'D',title:"All-or-nothing and absolutist",desc:"'If you can't do this properly, don't do it at all.' It demands perfection or nothing.",type:'C',blind:'D2'}
   ]},
   {id:5,section:"Part 1 · Clarity",
-   text:"When things go wrong — stress, a bad week, an emotional setback — what role does food play?",
+   text:"When things go wrong — stress, a bad week, an emotional setback, what role does food play?",
    subtext:"How food is used under pressure reveals the deepest layer of the pattern.",
    options:[
     {letter:'A',title:"Food becomes a reward for managing the stress",desc:"I've earned it. I'm dealing with a lot. The food is framed as deserved comfort, not avoidance.",type:'N',blind:'D3'},
     {letter:'B',title:"Food becomes part of the collapse",desc:"Once I've slipped, the eating tends to spiral. Self-criticism and eating feed each other.",type:'R',blind:'D3'},
     {letter:'C',title:"Food becomes unstructured and reactive",desc:"Without the weekday routine, eating becomes automatic. I'm not choosing — I'm just responding.",type:'W'},
-    {letter:'D',title:"Food becomes the reward for surviving imperfection",desc:"Having dealt with things being broken and messy, food feels like the one reliable thing.",type:'C',blind:'D3'}
+    {letter:'D',title:"Food has become my natural instinctive default",desc:"Having dealt with things being broken and messy, food feels like the one reliable thing.",type:'C',blind:'D3'}
   ]},
   // VISION SECTION (Q6-9)
   {id:6,section:"Part 2 · Vision",
@@ -433,7 +355,7 @@ const questions=[
   ]},
   // FOCUS SECTION (Q10-13)
   {id:10,section:"Part 3 · Focus",
-   text:"When you think about the long game — not a 6-week programme but a permanent shift — what's your honest reaction?",
+   text:"When you think about the long game, not a 6-week programme but a permanent shift — what's your honest reaction?",
    subtext:"The long game requires a different relationship with progress than most programmes offer.",
    options:[
     {letter:'A',title:"It sounds right but I struggle to stay engaged without short-term wins",desc:"I need to see results quickly to stay connected. The long game loses me without milestones.",type:'N'},
@@ -553,21 +475,18 @@ const typeData={
   }
 };
 
-const surfaceBlindSpots=["Expecting transformation from minimal effort","Ready-made excuses — loaded before the situation arrives","Externalising blame — real reasons used to remove agency"];
-const deepBlindSpots=["Self-talk as the hidden narrator running the pattern","Barriers interpreted as permanent character flaws","Using food to cope — conditioning, not weakness"];
+const surfaceBlindSpots=[
+  {name:"The Effort Gap",desc:"Expecting transformation from minimal effort"},
+  {name:"The Pre-Load",desc:"Ready-made excuses — loaded before the situation arrives"},
+  {name:"The Real Obstacle",desc:"Real obstacles used to justify staying stuck"}
+];
+const deepBlindSpots=[
+  {name:"The Hidden Narrator",desc:"Self-talk as the hidden narrator running the pattern"},
+  {name:"The Character Flaw",desc:"Barriers interpreted as permanent character flaws"},
+  {name:"The Conditioning",desc:"Using food to cope — conditioning, not weakness"}
+];
 
 let current=0,answers=[],scores={N:0,R:0,W:0,C:0},blindspots={surface:new Set(),deep:new Set()},futureSelf='',readiness='W';
-let pendingPrimary=null;
-let capturedFirstName='';
-let capturedEmail='';
-
-const BACKEND_BASE_URL='https://dt-coach-backend.onrender.com';
-
-const MAILERLITE_ENDPOINTS=(()=>{
-  return [
-    `${BACKEND_BASE_URL.replace(/\/+$/,'')}/api/subscribe`,
-  ];
-})();
 
 function startQuiz(){document.getElementById('intro').classList.remove('active');document.getElementById('quiz').classList.add('active');renderQuestion();}
 
@@ -604,17 +523,7 @@ function renderQuestion(){
 }
 
 function selectOption(i){document.querySelectorAll('.option').forEach(o=>o.classList.remove('selected'));document.querySelectorAll('.option')[i].classList.add('selected');answers[current]=i;document.getElementById('btn-next').classList.add('enabled');}
-function nextQuestion(){
-  if(answers[current]===undefined)return;
-  const isLast=current===questions.length-1;
-  if(isLast){
-    pendingPrimary=calculateResult();
-    showEmailCapture();
-    return;
-  }
-  current++;
-  renderQuestion();
-}
+function nextQuestion(){if(answers[current]===undefined)return;current++;if(current>=questions.length)calculateResult();else renderQuestion();}
 function goBack(){if(current>0){current--;renderQuestion();}}
 
 function calculateResult(){
@@ -631,133 +540,16 @@ function calculateResult(){
   Object.entries(scores).forEach(([k,v])=>{if(v>max){max=v;primary=k;}});
   if(blindspots.surface.size===0)blindspots.surface.add(0);
   if(blindspots.deep.size===0)blindspots.deep.add(1);
-  return primary;
-}
-
-function showEmailCapture(){
-  document.getElementById('quiz').classList.remove('active');
-  document.getElementById('email-capture').classList.add('active');
-  window.scrollTo(0,0);
-  const fn=document.getElementById('capture-first-name');
-  const em=document.getElementById('capture-email');
-  fn.value=capturedFirstName||'';
-  em.value=capturedEmail||'';
-  setTimeout(()=>fn.focus(),80);
-}
-
-function backToLastQuestion(){
-  document.getElementById('email-capture').classList.remove('active');
-  document.getElementById('quiz').classList.add('active');
-  window.scrollTo(0,0);
-  renderQuestion();
-}
-
-function isValidEmail(email){
-  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(String(email||'').trim());
-}
-
-let toastTimer=null;
-function showToast({title,message,variant='success',durationMs=4200}){
-  const wrap=document.getElementById('toast-wrap');
-  const toast=document.getElementById('toast');
-  document.getElementById('toast-title').textContent=title||'';
-  document.getElementById('toast-msg').textContent=message||'';
-  toast.classList.toggle('error',variant==='error');
-  wrap.style.display='flex';
-  // force reflow to ensure transition plays
-  void toast.offsetHeight;
-  toast.classList.add('show');
-  if(toastTimer) clearTimeout(toastTimer);
-  toastTimer=setTimeout(()=>hideToast(),durationMs);
-}
-function hideToast(){
-  const wrap=document.getElementById('toast-wrap');
-  const toast=document.getElementById('toast');
-  toast.classList.remove('show');
-  if(toastTimer) clearTimeout(toastTimer);
-  toastTimer=null;
-  setTimeout(()=>{wrap.style.display='none';},220);
-}
-
-function submitEmailCapture(){
-  const fn=(document.getElementById('capture-first-name').value||'').trim();
-  const em=(document.getElementById('capture-email').value||'').trim();
-  const note=document.getElementById('capture-note');
-  const btn=document.getElementById('capture-submit');
-
-  if(!fn){
-    note.textContent='Please enter your first name.';
-    return;
-  }
-  if(!isValidEmail(em)){
-    note.textContent='Please enter a valid email address.';
-    return;
-  }
-  capturedFirstName=fn;
-  capturedEmail=em;
-  note.textContent='Saving your details...';
-  const prevBtnText=btn.textContent;
-  btn.textContent='Saving...';
-  btn.disabled=true;
-  btn.style.pointerEvents='none';
-
-  // Show results immediately (MailerLite can fail without blocking results).
-  document.getElementById('email-capture').classList.remove('active');
-  showResult(pendingPrimary||'R');
-
-  // Fire-and-forget subscribe call.
-  subscribeToMailerLite({
-    firstName: capturedFirstName,
-    email: capturedEmail,
-    resultType: pendingPrimary||'R'
-  }).then((ok)=>{
-    if(ok){
-      showToast({
-        title:'Saved',
-        message:'Your details were saved successfully.'
-      });
-    }else{
-      showToast({
-        title:'Could not save',
-        message:'Your results are still ready, but saving your email failed. Please try again later.',
-        variant:'error',
-        durationMs:6000
-      });
-    }
-  }).finally(()=>{
-    note.textContent='We’ll only use this to send your profile and relevant updates. You can unsubscribe anytime.';
-    btn.textContent=prevBtnText;
-    btn.disabled=false;
-    btn.style.pointerEvents='';
-  });
-}
-
-async function subscribeToMailerLite(payload){
-  for(const url of MAILERLITE_ENDPOINTS){
-    try{
-      const res=await fetch(url,{
-        method:'POST',
-        headers:{'Content-Type':'application/json'},
-        body:JSON.stringify(payload)
-      });
-      if(res.ok) return true;
-    }catch(e){
-      // try next endpoint
-    }
-  }
-  return false;
+  showResult(primary);
 }
 
 function showResult(primary){
   document.getElementById('quiz').classList.remove('active');
-  document.getElementById('email-capture').classList.remove('active');
   document.getElementById('result').classList.add('active');
   window.scrollTo(0,0);
   const td=typeData[primary];
   const total=scores.N+scores.R+scores.W+scores.C||1;
 
-  const eyebrow=document.getElementById('result-eyebrow');
-  eyebrow.textContent=capturedFirstName?`${capturedFirstName}, your 2.0 Profile is ready`:'Your 2.0 Profile';
   document.getElementById('result-type-name').innerHTML=`<span class="gold">${td.goldPart}</span>${td.restPart}`;
   document.getElementById('result-tagline').textContent=td.tagline;
 
@@ -797,8 +589,8 @@ function showResult(primary){
     <p class="ssr-note">${td.shiftNote}</p>`;
 
   // Blind spots
-  const surfaceHTML=surfaceBlindSpots.map((b,i)=>`<div class="bs-tag${blindspots.surface.has(i)?' active':''}">${b}</div>`).join('');
-  const deepHTML=deepBlindSpots.map((b,i)=>`<div class="bs-tag${blindspots.deep.has(i)?' active':''}">${b}</div>`).join('');
+  const surfaceHTML=surfaceBlindSpots.map((b,i)=>`<div class="bs-tag${blindspots.surface.has(i)?' active':''}" ><div class="bs-tag-name">${b.name}</div><div class="bs-tag-desc">${b.desc}</div></div>`).join('');
+  const deepHTML=deepBlindSpots.map((b,i)=>`<div class="bs-tag${blindspots.deep.has(i)?' active':''}" ><div class="bs-tag-name">${b.name}</div><div class="bs-tag-desc">${b.desc}</div></div>`).join('');
   document.getElementById('bs-tiers-result').innerHTML=`
     <div class="bs-tier-result"><div class="bs-tier-title">Surface Blind Spots</div><div class="bs-tags">${surfaceHTML}</div></div>
     <div class="bs-tier-result"><div class="bs-tier-title">Deep Blind Spots</div><div class="bs-tags">${deepHTML}</div></div>`;
